@@ -47,14 +47,26 @@ class Bot extends Component
 
     /**
      * 
-     * @param unknown $message
-     * @param array $options
+     * @param unknown $_message
+     * @param array $_options
      * @return \kostikpenzin\SlackBot\Bot
      */
-    public function danger($message, array $options = [])
+    public function danger($_message, array $options = [])
     {
-        $options['color'] = ArrayHelper::remove($options, 'color', 'danger');
-        return $this->_message($message, $options = []);
+        $options['color'] = ArrayHelper::remove($_options, 'color', 'danger');
+        return $this->_message($_message, $_options = []);
+    }
+
+    /**
+     * 
+     * @param unknown $_message
+     * @param array $_options
+     * @return \kostikpenzin\SlackBot\Bot
+     */
+    public function warning($_message, array $_options = [])
+    {
+        $options['color'] = ArrayHelper::remove($_options, 'color', 'warning');
+        return $this->_message($_message, $_options);
     }
 
     /**
@@ -63,31 +75,19 @@ class Bot extends Component
      * @param array $options
      * @return \kostikpenzin\SlackBot\Bot
      */
-    public function warning($message, array $options = [])
+    public function success($_message, array $_options = [])
     {
-        $options['color'] = ArrayHelper::remove($options, 'color', 'warning');
-        return $this->_message($message, $options);
+        $options['color'] = ArrayHelper::remove($_options, 'color', 'good');
+        return $this->_message($_message, $_options);
     }
 
     /**
      * 
-     * @param unknown $message
-     * @param array $options
+     * @param string $_message
+     * @param array $_options
      * @return \kostikpenzin\SlackBot\Bot
      */
-    public function success($message, array $options = [])
-    {
-        $options['color'] = ArrayHelper::remove($options, 'color', 'good');
-        return $this->_message($message, $options);
-    }
-
-    /**
-     * 
-     * @param string $message
-     * @param array $options
-     * @return \kostikpenzin\SlackBot\Bot
-     */
-    public function _message($_message, array $_options = [])
+    public function message($_message, array $_options = [])
     {
         $_options['text'] = $_message;
 
@@ -105,7 +105,7 @@ class Bot extends Component
         $_data = $this->_attachments;
         $this->_attachments = [];
 
-        return $this->curlSend($_data);
+        return $this->_curlSend($_data);
     }
 
     /**
@@ -113,7 +113,7 @@ class Bot extends Component
      * @param array $_att
      * @return boolean
      */
-    private function curlSend(array $_att)
+    private function _curlSend(array $_att)
     {
         $curl = new Curl();
         $curl->post('https://slack.com/api/chat.postMessage', [
