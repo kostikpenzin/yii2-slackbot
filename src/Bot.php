@@ -27,7 +27,7 @@ class Bot extends Component
     /**
      * @var string
      */
-    public $_icon = '';
+    public $_icon = ':mega:';
 
     /**
      * @var string
@@ -45,42 +45,6 @@ class Bot extends Component
         }
     }
 
-    /**
-     * 
-     * @param unknown $_message
-     * @param array $_options
-     * @return \kostikpenzin\SlackBot\Bot
-     */
-    public function danger($_message, array $options = [])
-    {
-        $options['color'] = ArrayHelper::remove($_options, 'color', 'danger');
-        return $this->message($_message, $_options = []);
-    }
-
-    /**
-     * 
-     * @param unknown $_message
-     * @param array $_options
-     * @return \kostikpenzin\SlackBot\Bot
-     */
-    public function warning($_message, array $_options = [])
-    {
-        $options['color'] = ArrayHelper::remove($_options, 'color', 'warning');
-        return $this->message($_message, $_options);
-    }
-
-    /**
-     * 
-     * @param unknown $_message
-     * @param array $options
-     * @return \kostikpenzin\SlackBot\Bot
-     */
-    public function success($_message, array $_options = [])
-    {
-        $options['color'] = ArrayHelper::remove($_options, 'color', 'good');
-        return $this->message($_message, $_options);
-    }
-
     private $_attachments = [];
 
     /**
@@ -92,9 +56,7 @@ class Bot extends Component
     public function message($_message, array $_options = [])
     {
         $_options['text'] = $_message;
-
         $this->_attachments[] = $_options;
-
         return $this;
     }
 
@@ -106,7 +68,6 @@ class Bot extends Component
     {
         $_data = $this->_attachments;
         $this->_attachments = [];
-
         return $this->_curlSend($_data);
     }
 
@@ -125,7 +86,6 @@ class Bot extends Component
             'attachments' => json_encode($_att),
             'icon_emoji' => $this->_icon
         ]);
-
         return $curl->isSuccess();
     }
 }

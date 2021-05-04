@@ -28,23 +28,5 @@ Add the component to your config in the components section:
 Using in your Application:
 
 ```php
-Yii::$app->slackbot->message('Message.')->send();
-```
-
-Send colorized Messages:
-
-```php
-Yii::$app->slackbot->danger('Alert!')->send();
-```
-
-```php
-Yii::$app->slackbot->danger('Alert!')->send();
-```
-
-```php
-Yii::$app->slackbot->warning('Warning!')->send();
-```
-
-```php
-Yii::$app->slackbot->success('Success!')->send();
+\Yii::$app->slackbot->message('Message.')->send();
 ```
