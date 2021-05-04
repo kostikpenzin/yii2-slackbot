@@ -3,25 +3,23 @@
     "description": "Yii bot for sending messages (alerts) to Slack",
     "type": "library",
     "keywords": [
-        "Php", 
-        "Php7", 
-        "Yii", 
-        "Api", 
+        "Php",
+        "Php7",
+        "Yii",
+        "Api",
         "Slack",
         "Alert"
     ],
     "homepage": "https://github.com/kostikpenzin/yii2-slackbot",
     "license": "BSD-2-Clause",
-    "authors": [
-        {
-            "name": "Konstantin Penzin",
-            "email": "penzin85@gmail.com"
-        }
-    ],
+    "authors": [{
+        "name": "Konstantin Penzin",
+        "email": "penzin85@gmail.com"
+    }],
     "require": {
         "php": ">=7.1",
         "curl/curl": "^1.6 | ^2.0",
-        "yiisoft/yii2" : "~2.0.0"
+        "yiisoft/yii2": "~2.0.0"
     },
     "autoload": {
         "psr-4": {
