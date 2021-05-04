@@ -110,11 +110,10 @@ class Bot extends Component
     {
         $curl = new Curl();
         $curl->post('https://slack.com/api/chat.postMessage', [
-            'token' => $this->token,
-            'channel' => $this->channel,
-            'username' => $this->username,
-            'attachments' => json_encode($attachements),
-            'icon_emoji' => $this->icon
+            'token' => $this->_token,
+            'channel' => $this->_channel,
+            'username' => $this->_username,
+            'icon_emoji' => $this->_icon
         ]);
 
         return $curl->isSuccess();

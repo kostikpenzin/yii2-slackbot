@@ -15,7 +15,7 @@ Add the component to your config in the components section:
 ```php
 'components' => [
     // ...
-    'slack' => [
+    'slackbot' => [
         'class' => 'kostikpenzin\SlackBot\Bot',
         '_token' => 'Asdw-111111111-2222222222-3333333333',
         '_channel' => 'Finanso_alert',
@@ -28,23 +28,23 @@ Add the component to your config in the components section:
 Using in your Application:
 
 ```php
-Yii::$app->slack->message('Message.')->send();
+Yii::$app->slackbot->message('Message.')->send();
 ```
 
 Send colorized Messages:
 
 ```php
-Yii::$app->slack->danger('Alert!')->send();
+Yii::$app->slackbot->danger('Alert!')->send();
 ```
 
 ```php
-Yii::$app->slack->danger('Alert!')->send();
+Yii::$app->slackbot->danger('Alert!')->send();
 ```
 
 ```php
-Yii::$app->slack->warning('Warning!')->send();
+Yii::$app->slackbot->warning('Warning!')->send();
 ```
 
 ```php
-Yii::$app->slack->success('Success!')->send();
+Yii::$app->slackbot->success('Success!')->send();
 ```
