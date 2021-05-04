@@ -81,6 +81,8 @@ class Bot extends Component
         return $this->_message($_message, $_options);
     }
 
+    private $_attachments = [];
+
     /**
      * 
      * @param string $_message
