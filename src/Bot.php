@@ -32,7 +32,7 @@ class Bot extends Component
     /**
      * @var string
      */
-    public $_username = 'SlackBOT';
+    public $_username = 'SlackBot';
 
     /**
      * @inheritdoc
@@ -54,7 +54,7 @@ class Bot extends Component
     public function danger($message, array $options = [])
     {
         $options['color'] = ArrayHelper::remove($options, 'color', 'danger');
-        return $this->message($message, $options = []);
+        return $this->_message($message, $options = []);
     }
 
     /**
@@ -66,7 +66,7 @@ class Bot extends Component
     public function warning($message, array $options = [])
     {
         $options['color'] = ArrayHelper::remove($options, 'color', 'warning');
-        return $this->message($message, $options);
+        return $this->_message($message, $options);
     }
 
     /**
@@ -78,18 +78,18 @@ class Bot extends Component
     public function success($message, array $options = [])
     {
         $options['color'] = ArrayHelper::remove($options, 'color', 'good');
-        return $this->message($message, $options);
+        return $this->_message($message, $options);
     }
 
     /**
      * 
-     * @param string $message
+     * @param string $_message
      * @param array $options
      * @return \kostikpenzin\SlackBot\Bot
      */
-    public function message($message, array $options = [])
+    public function _message($_message, array $options = [])
     {
-        $options['text'] = $message;
+        $options['text'] = $_message;
         return $this;
     }
 
@@ -99,14 +99,14 @@ class Bot extends Component
      */
     public function send()
     {
-        return $this->parseAndSend($data);
+        return $this->curlSend($data);
     }
 
     /**
      * 
      * @return boolean
      */
-    private function parseAndSend()
+    private function curlSend()
     {
         $curl = new Curl();
         $curl->post('https://slack.com/api/chat.postMessage', [
