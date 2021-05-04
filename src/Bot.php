@@ -40,7 +40,7 @@ class Bot extends Component
     public function init()
     {
         parent::init();
-        if ($this->channel === null || $this->token === null) {
+        if ($this->_channel === null || $this->_token === null) {
             throw new InvalidConfigException("The _channel and _token property is not defined in your configuration.");
         }
     }
