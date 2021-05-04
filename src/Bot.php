@@ -54,7 +54,7 @@ class Bot extends Component
     public function danger($_message, array $options = [])
     {
         $options['color'] = ArrayHelper::remove($_options, 'color', 'danger');
-        return $this->_message($_message, $_options = []);
+        return $this->message($_message, $_options = []);
     }
 
     /**
@@ -66,7 +66,7 @@ class Bot extends Component
     public function warning($_message, array $_options = [])
     {
         $options['color'] = ArrayHelper::remove($_options, 'color', 'warning');
-        return $this->_message($_message, $_options);
+        return $this->message($_message, $_options);
     }
 
     /**
@@ -78,7 +78,7 @@ class Bot extends Component
     public function success($_message, array $_options = [])
     {
         $options['color'] = ArrayHelper::remove($_options, 'color', 'good');
-        return $this->_message($_message, $_options);
+        return $this->message($_message, $_options);
     }
 
     private $_attachments = [];
