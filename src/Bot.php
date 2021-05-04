@@ -99,7 +99,7 @@ class Bot extends Component
      */
     public function send()
     {
-        return $this->curlSend($data);
+        return $this->curlSend($this->_message);
     }
 
     /**
