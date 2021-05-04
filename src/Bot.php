@@ -5,7 +5,6 @@ namespace kostikpenzin\SlackBot;
 use Curl\Curl;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
-use yii\helpers\ArrayHelper;
 
 /**
  * Slack Bot Component.
