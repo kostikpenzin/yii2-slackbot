@@ -71,7 +71,7 @@ class Bot extends Component
 
     /**
      * 
-     * @param unknown $message
+     * @param unknown $_message
      * @param array $options
      * @return \kostikpenzin\SlackBot\Bot
      */
