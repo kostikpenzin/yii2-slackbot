@@ -83,13 +83,16 @@ class Bot extends Component
 
     /**
      * 
-     * @param string $_message
+     * @param string $message
      * @param array $options
      * @return \kostikpenzin\SlackBot\Bot
      */
-    public function _message($_message, array $options = [])
+    public function _message($_message, array $_options = [])
     {
-        $options['text'] = $_message;
+        $_options['text'] = $_message;
+
+        $this->_attachments[] = $_options;
+
         return $this;
     }
 
@@ -99,20 +102,25 @@ class Bot extends Component
      */
     public function send()
     {
-        return $this->curlSend($this->_message);
+        $_data = $this->_attachments;
+        $this->_attachments = [];
+
+        return $this->curlSend($_data);
     }
 
     /**
      * 
+     * @param array $_att
      * @return boolean
      */
-    private function curlSend()
+    private function curlSend(array $_att)
     {
         $curl = new Curl();
         $curl->post('https://slack.com/api/chat.postMessage', [
             'token' => $this->_token,
             'channel' => $this->_channel,
             'username' => $this->_username,
+            'attachments' => json_encode($_att),
             'icon_emoji' => $this->_icon
         ]);
 
