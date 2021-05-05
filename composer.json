@@ -5,13 +5,14 @@
     "keywords": [
         "Php",
         "Php7",
+        "Bot",
         "Yii",
         "Api",
         "Slack",
         "Alert"
     ],
     "homepage": "https://github.com/kostikpenzin/yii2-slackbot",
-    "license": "BSD-2-Clause",
+    "license": "MIT",
     "authors": [{
         "name": "Konstantin Penzin",
         "email": "penzin85@gmail.com"
