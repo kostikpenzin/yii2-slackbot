@@ -1,4 +1,11 @@
 # Yii 2 SlackBot
+==================================
+
+[![Latest Stable Version](https://poser.pugx.org/kostikpenzin/yii2-slackbot/v/stable)](https://packagist.org/packages/coderius/yii2-highlight-js)
+[![Total Downloads](https://poser.pugx.org/kostikpenzin/yii2-slackbot/downloads)](https://packagist.org/packages/coderius/yii2-highlight-js)
+[![Latest Unstable Version](https://poser.pugx.org/kostikpenzin/yii2-slackbot/v/unstable)](https://packagist.org/packages/coderius/yii2-highlight-js)
+[![License](https://poser.pugx.org/kostikpenzin/yii2-slackbot/license)](https://packagist.org/packages/coderius/yii2-highlight-js)
+[![Monthly Downloads](https://poser.pugx.org/kostikpenzin/yii2-slackbot/d/monthly)](https://packagist.org/packages/coderius/yii2-highlight-js)
 
 Yii bot for sending messages (alerts) to Slack.
 
