@@ -123,9 +123,8 @@ class Bot extends Component
      * _curlSend
      *
      * @param array $_att
-     * @return boolean
      */
-    private function _curlSend(array $_att): boolean
+    private function _curlSend(array $_att)
     {
         $curl = new Curl();
         $curl->post('https://slack.com/api/chat.postMessage', [
