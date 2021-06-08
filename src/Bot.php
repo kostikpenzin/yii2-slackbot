@@ -103,7 +103,7 @@ class Bot extends Component
      */
     public function user(string $username): \kostikpenzin\SlackBot\Bot
     {
-        $this->username = $username;
+        $this->_username = $username;
         return $this;
     }
 
@@ -115,7 +115,7 @@ class Bot extends Component
      */
     public function icon(string $icon): \kostikpenzin\SlackBot\Bot
     {
-        $this->icon = $icon;
+        $this->_icon = $icon;
         return $this;
     }
 
