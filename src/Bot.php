@@ -74,7 +74,7 @@ class Bot extends Component
      * send
      *
      */
-    public function send():
+    public function send()
     {
         $_data = $this->_attachments;
         $this->_attachments = [];
