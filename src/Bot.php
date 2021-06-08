@@ -8,8 +8,10 @@ use yii\base\InvalidConfigException;
 
 /**
  * Slack Bot Component.
- * 
+ *
  * @author Konstantin Penzin <penzin85@gmail.com>
+ * @link https://github.com/kostikpenzin/yii2-slackbot
+ * @version v0.1.0
  */
 class Bot extends Component
 {
@@ -33,8 +35,11 @@ class Bot extends Component
      */
     public $_username = 'SlackBot';
 
+
     /**
-     * @inheritdoc
+     * init
+     *
+     * @return void
      */
     public function init()
     {
@@ -44,15 +49,21 @@ class Bot extends Component
         }
     }
 
+    /**
+     * _attachments
+     *
+     * @var array
+     */
     private $_attachments = [];
 
     /**
-     * 
+     * message
+     *
      * @param string $_message
      * @param array $_options
      * @return \kostikpenzin\SlackBot\Bot
      */
-    public function message($_message, array $_options = [])
+    public function message(string $_message, array $_options = []): \kostikpenzin\SlackBot\Bot
     {
         $_options['text'] = $_message;
         $this->_attachments[] = $_options;
@@ -60,22 +71,61 @@ class Bot extends Component
     }
 
     /**
-     * 
+     * send
+     *
      * @return boolean
      */
-    public function send()
+    public function send(): boolean
     {
         $_data = $this->_attachments;
         $this->_attachments = [];
         return $this->_curlSend($_data);
     }
 
+
     /**
-     * 
+     * channel
+     *
+     * @param  string $channel
+     * @return \kostikpenzin\SlackBot\Bot
+     */
+    public function channel(string $channel): \kostikpenzin\SlackBot\Bot
+    {
+        $this->_channel = $channel;
+        return $this;
+    }
+
+    /**
+     * user
+     *
+     * @param  string $username
+     * @return \kostikpenzin\SlackBot\Bot
+     */
+    public function user(string $username): \kostikpenzin\SlackBot\Bot
+    {
+        $this->username = $username;
+        return $this;
+    }
+
+    /**
+     * icon
+     *
+     * @param  string $icon
+     * @return \kostikpenzin\SlackBot\Bot
+     */
+    public function icon(string $icon): \kostikpenzin\SlackBot\Bot
+    {
+        $this->icon = $icon;
+        return $this;
+    }
+
+    /**
+     * _curlSend
+     *
      * @param array $_att
      * @return boolean
      */
-    private function _curlSend(array $_att)
+    private function _curlSend(array $_att): boolean
     {
         $curl = new Curl();
         $curl->post('https://slack.com/api/chat.postMessage', [
