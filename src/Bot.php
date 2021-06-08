@@ -73,9 +73,8 @@ class Bot extends Component
     /**
      * send
      *
-     * @return boolean
      */
-    public function send(): boolean
+    public function send()
     {
         $_data = $this->_attachments;
         $this->_attachments = [];
