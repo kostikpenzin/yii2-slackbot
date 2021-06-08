@@ -24,15 +24,31 @@ Add the component to your config in the components section:
     'slackbot' => [
         'class' => 'kostikpenzin\SlackBot\Bot',
         '_token' => 'Asdw-111111111-2222222222-3333333333',
-        '_channel' => 'Finanso_alert',
-        '_username' => 'SlackBot',
-        '_icon' => ''
+        '_channel' => 'Finanso_alert', // default channel
+        '_username' => 'Finanso_SlackBot',
+        '_icon' => ':mega:'
     ]
 ]
 ```
 
-Using in your Application:
+Using default settings in your Application:
 
 ```php
-\Yii::$app->slackbot->message('Message.')->send();
+\Yii::$app
+  ->slackbot
+  ->message('Message.')
+  ->send();
 ```
+
+Using custom settings in your Application:
+
+```php
+\Yii::$app
+  ->slackbot
+  ->channel('Finanso_alert')
+  ->user('Finanso_SlackBot')
+  ->icon(':mega:')
+  ->message('Message.')
+  ->send();
+```
+
